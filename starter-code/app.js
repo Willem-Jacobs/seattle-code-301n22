@@ -172,11 +172,20 @@ let Student = function(name, age, hometown) {
   this.hometown = hometown;
 };
 
-let joe = new Student('Joe', 'Schmoe', 100);
+let joe = new Student('Joe', 100, 'Schmoe');
+
+let StudentNew = function(name, age, hometown) {
+  this.name = name;
+  this.age = age;
+  this.hometown = hometown;
+};
+
+let joeNew = new StudentNew('Joe', 100, 'Schmoe');
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this code to break!
-// console.log(joe);
+console.log(joe);
+console.log('Arrow wont work (this normal function): ', joeNew);
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
 
@@ -188,19 +197,22 @@ Student.prototype.greeting = function() {
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this method to break!
-// console.log(joe.greeting());
+console.log(joe.greeting());
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
-
+// Write this as an arrow will not work as reference to THIS is needed. Must use normal function.
 
 
 Student.courseName = function() {
   return 'This student is enrolled in Code 301.';
 };
 
-// TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(Student.courseName());
+Student.courseNameNew = () => 'This student is enrolled in code 301.';
 
+// TODO: Uncomment the following line of code to see the output in the browser console
+console.log(Student.courseName());
+console.log(Student.courseNameNew());
+// the above works as there is no reference to THIS.
 
 
 // STEP 11
