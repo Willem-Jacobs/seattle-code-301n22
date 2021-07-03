@@ -211,28 +211,33 @@ Student.courseNameNew = () => 'This student is enrolled in code 301.';
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(Student.courseName());
-console.log(Student.courseNameNew());
+console.log('Arrow: ', Student.courseNameNew());
 // the above works as there is no reference to THIS.
 
 
 // STEP 11
 // How do arrow functions affect constructor functions?
 Student.prototype.scope = function() {
-  console.log(this);
+  console.log('In scope for Joe: ', this);
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scope());
+console.log('1', joe.scope());
 
-Student.prototype.scopeArrow = () => console.log(this);
+Student.prototype.scopeArrow = () => console.log('In scopeArrow: ', this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scopeArrow());
+console.log('Arrow: ', joe.scopeArrow());
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
+// inside the method scope using the console.log, this refers to the object that is joe.
+// the console.log(joe.scrope()) returned undefined. if you just run joe.scope() it will give you
+// the object and this refers to the joe object.
 //
 // 2. What is "this" when joe.scopeArrow() is invoked?
+// The window object
 //
 // 3. Explain why "this" is different when an arrow function is used.
-//
+// when using arrow and this, the THIS will refer to the window object of the browser due to the
+// scope of this inside the arrow function.
